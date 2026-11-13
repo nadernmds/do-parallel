@@ -18,7 +18,7 @@ git clone https://github.com/nadernmds/do-parallel.git ~/.claude/skills/do-paral
 
 Then, in Claude Code, give it a plan and say **"do parallel"**.
 
-Using Cursor? See [CURSOR.md](CURSOR.md).
+Using Cursor? See [CURSOR.md](CURSOR.md). Using GitHub Copilot? See [GITHUB-COPILOT.md](GITHUB-COPILOT.md).
 
 ## Requirements
 
