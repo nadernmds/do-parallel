@@ -18,6 +18,8 @@ git clone https://github.com/nadernmds/do-parallel.git ~/.claude/skills/do-paral
 
 Then, in Claude Code, give it a plan and say **"do parallel"**.
 
+Using Cursor? See [CURSOR.md](CURSOR.md).
+
 ## Requirements
 
 - Claude Code with the Agent tool. Managers that spawn workers need a
