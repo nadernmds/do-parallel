@@ -10,6 +10,17 @@ most useful safe parallelism and low CPU use.
 - **Git-safe**: explicit file ownership, optional worktrees, never discards your changes.
 - **No model switching**: every agent inherits the model of your session.
 
+## Supported tools
+
+| Tool | Install folder | Guide |
+|---|---|---|
+| Claude Code | `~/.claude/skills/do-parallel` | this README |
+| Cursor | `~/.cursor/skills/do-parallel` | [CURSOR.md](CURSOR.md) |
+| GitHub Copilot | `.github/skills/do-parallel` or `~/.copilot/skills/do-parallel` | [GITHUB-COPILOT.md](GITHUB-COPILOT.md) |
+
+Cursor and Copilot also read `~/.claude/skills/`, so one install may cover all three.
+Nested agents and agent-to-agent messaging depend on the tool; the skill falls back to a flat tree when they are missing.
+
 ## Install
 
 ```bash
@@ -17,8 +28,6 @@ git clone https://github.com/nadernmds/do-parallel.git ~/.claude/skills/do-paral
 ```
 
 Then, in Claude Code, give it a plan and say **"do parallel"**.
-
-Using Cursor? See [CURSOR.md](CURSOR.md). Using GitHub Copilot? See [GITHUB-COPILOT.md](GITHUB-COPILOT.md).
 
 ## Requirements
 
