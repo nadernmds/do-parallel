@@ -459,6 +459,20 @@ Applies to the single Test agent.
 - **Queue order:** critical-path tasks first, then FIFO. Never block workers on the tester. Workers keep going while results arrive later.
 - **Failed check:** the tester fixes within that task's files and re-runs only the failed check. It escalates to the root after 2 failed attempts.
 
+## 14c. Token Budget
+
+Tokens are spent on briefs, reports, and command output. Keep each small.
+
+- **Briefs by path:** give workers their one task plus the path to `.do-parallel/brief.md`. Never paste the whole plan or brief. Tell workers to read only the files they own and the few they depend on, not the repo.
+- **One agent per task:** use a fresh worker for each task, with a narrow brief, instead of reusing a worker whose context keeps growing. Keep only the root, managers, and the tester long-lived.
+- **Compact reports:** a worker's message is at most ~15 lines: task ID, verdict, files changed, contracts affected, blockers. Long detail (logs, diffs, notes) goes to `.do-parallel/results/<task-id>.md` and the message carries only the path.
+- **Review by diff stat first:** the root and managers look at `git diff --stat`, then open only the files that matter. Reading actual changes is still required; reading all of them is not.
+- **Filter command output:** run tests, builds, and linters quietly (dot/summary reporters, `--silent`) and show only failures plus the last ~40 lines. Full logs go to a file under `.do-parallel/`. The tester reports pass/fail plus the failing excerpt only.
+- **Research agents:** read-only agents return at most ~300 words with `file:line` references, not file dumps.
+- **Resume cheaply:** on resume read `state.json` and the tail of `log.md`, not the full history.
+- **Stop loops:** at most 2 fix attempts per failure, then escalate to the root. Do not re-run unchanged checks.
+- **Skip agents for tiny work:** if a task is a few lines, the owner does it directly. Spawning costs more tokens than the edit.
+
 ## 15. Keep the Repository Clean and Understandable
 
 The final implementation should feel like one coherent engineering effort, not a collection of disconnected agent contributions.

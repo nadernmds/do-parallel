@@ -8,6 +8,7 @@ most useful safe parallelism and low CPU use.
 - **CPU budget**: 3-4 writing workers by default, throttled test processes, tiered checks (related tests per task, full suite only at integration gates).
 - **Resumable**: state is saved to `.do-parallel/` in your repo, so you can continue after a pause or usage limit ("do parallel resume").
 - **Git-safe**: explicit file ownership, optional worktrees, never discards your changes.
+- **Token-aware**: briefs passed by file path, compact worker reports, filtered command output, capped retries.
 - **No model switching**: every agent inherits the model of your session.
 
 ## Supported tools
